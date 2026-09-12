@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-label="SBM Icon">
+  <title>Satya Bharat Minerals</title>
+
+  <!--
+    Flat-top hexagon (like a bolt/nut head):
+      flat top edge, pointy left & right, flat bottom edge
+
+    Layer 1 – Outer red hex      : r = 90
+    Layer 2 – White ring hex     : r = 80  (white fill = creates the white border ring)
+    Layer 3 – Inner red hex      : r = 70  (red fill on top of white = creates the inner content area)
+
+    Center: (100, 100)
+
+    Vertex formula (flat-top, clockwise from right):
+      0°  → (cx+r, cy)
+      60° → (cx+r/2, cy+r*√3/2)
+     120° → (cx−r/2, cy+r*√3/2)
+     180° → (cx−r, cy)
+     240° → (cx−r/2, cy−r*√3/2)
+     300° → (cx+r/2, cy−r*√3/2)
+
+    r=90  → right(190,100) BR(145,178) BL(55,178) left(10,100) TL(55,22) TR(145,22)
+    r=80  → right(180,100) BR(140,169) BL(60,169) left(20,100) TL(60,31)  TR(140,31)
+    r=70  → right(170,100) BR(135,161) BL(65,161) left(30,100) TL(65,39)  TR(135,39)
+  -->
+
+  <!-- ── Layer 1: Outer red hexagon ── -->
+  <polygon
+    points="145,22 190,100 145,178 55,178 10,100 55,22"
+    fill="#CC1515"
+  />
+
+  <!-- ── Layer 2: White ring (creates the border) ── -->
+  <polygon
+    points="140,31 180,100 140,169 60,169 20,100 60,31"
+    fill="white"
+  />
+
+  <!-- ── Layer 3: Inner red area (content canvas) ── -->
+  <polygon
+    points="135,39 170,100 135,161 65,161 30,100 65,39"
+    fill="#CC1515"
+  />
+
+  <!-- ── White V-triangle at top ── -->
+  <!-- Lines from inner top-left corner (65,39) and inner top-right (135,39)
+       both meet at a centre peak ~y=70 -->
+  <polyline
+    points="65,39 100,72 135,39"
+    fill="none"
+    stroke="white"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- ── White horizontal separator bar ── -->
+  <line
+    x1="30" y1="108"
+    x2="170" y2="108"
+    stroke="white"
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+
+  <!-- ── SBM text ── -->
+  <text
+    x="100" y="152"
+    font-family="'Arial Black','Arial Bold',Arial,Helvetica,sans-serif"
+    font-size="52"
+    font-weight="900"
+    fill="white"
+    text-anchor="middle"
+    dominant-baseline="auto"
+    letter-spacing="-1"
+  >SBM</text>
+</svg>
