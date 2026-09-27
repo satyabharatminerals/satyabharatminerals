@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getSeoAlternates } from '@/lib/seo-helpers';
+import { ImageCarousel } from '@/components/image-carousel';
 import {
   ArrowRight,
   CheckCircle2,
@@ -12,6 +13,11 @@ import {
   Award,
   GraduationCap,
   Quote,
+  Building2,
+  Globe2,
+  Hexagon,
+  Briefcase,
+  Handshake,
 } from 'lucide-react';
 import {
   products,
@@ -98,23 +104,59 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Partnership Marquee */}
+      <section className="py-10 overflow-hidden">
+        <div className="flex w-max animate-marquee items-center gap-20 pr-20 hover:[animation-play-state:paused]">
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex items-center gap-20">
+              {[
+                { src: '/images/partners/birlanu.png', name: 'Birla NU' },
+                { src: '/images/partners/jksmartblox.png', name: 'JK Smartblox' },
+                { src: '/images/partners/fusionaac.png', name: 'Fusion AAC' },
+                { src: '/images/partners/jindalsteel.png', name: 'Jindal Steel' },
+                { src: '/images/partners/landt.png', name: 'L&T Construction' },
+                { src: '/images/partners/tatasteel.png', name: 'Tata Long Product' },
+                { src: '/images/partners/jamipol.png', name: 'Jamipol Ltd' },
+                { src: '/images/partners/arnavi.png', name: 'Arnavi Green AAC' },
+                { src: '/images/partners/mepcrete.png', name: 'Mepcrete AAC' },
+                { src: '/images/partners/shreecement.png', name: 'Shree Cement AAC' },
+              ].map((partner, idx) => (
+                <div
+                  key={`${i}-${idx}`}
+                  className="shrink-0"
+                  style={{ width: '180px', height: '70px' }}
+                >
+                  <img
+                    src={partner.src}
+                    alt={partner.name}
+                    style={{ width: '180px', height: '70px', objectFit: 'contain' }}
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* About Preview */}
       <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="relative">
-              <div className="relative aspect-4/3 overflow-hidden rounded-2xl shadow-lg">
-                <Image
-                  src="/images/about/manufacturing-facility.jpg"
-                  alt="Industrial lime manufacturing facility"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 hidden rounded-2xl bg-primary px-6 py-5 text-primary-foreground shadow-xl sm:block">
-                <p className="font-heading text-3xl font-bold">25+</p>
-                <p className="text-sm opacity-90">Years of Excellence</p>
+              <ImageCarousel
+                images={[
+                  '/images/applications/aboutus/image1.jpeg',
+                  '/images/applications/aboutus/image2.jpeg',
+                  '/images/applications/aboutus/image3.jpeg',
+                  '/images/applications/aboutus/image4.jpeg',
+                  '/images/applications/aboutus/image5.jpeg',
+                  '/images/applications/aboutus/image6.jpeg'
+                ]}
+                alt="Industrial lime manufacturing facility"
+              />
+              <div className="absolute -bottom-4 -right-4 hidden z-20 rounded-xl bg-primary px-4 py-3 text-primary-foreground shadow-xl sm:block">
+                <p className="font-heading text-2xl font-bold">25+</p>
+                <p className="text-xs opacity-90">Years of Excellence</p>
               </div>
             </div>
             <div>
@@ -276,6 +318,7 @@ export default function Home() {
                     src={app.image}
                     alt={app.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />

@@ -58,6 +58,10 @@
     from { opacity: 0; }
     to { opacity: 1; }
   }
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
 }
 
 @layer base {
@@ -135,5 +139,8 @@
   }
   .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
   }
 }

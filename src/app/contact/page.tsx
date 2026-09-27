@@ -57,12 +57,30 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-heading text-sm font-semibold text-foreground">
-                                            Our Office
+                                            Head Office
                                         </h3>
                                         <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
                                             {companyInfo.address.line1}
                                             <br />
                                             {companyInfo.address.line2}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-5 shadow-sm">
+                                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                                        <MapPin className="h-5 w-5" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-heading text-sm font-semibold text-foreground">
+                                            Site Office
+                                        </h3>
+                                        <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                                            {companyInfo.siteOffice.line1}
+                                            <br />
+                                            {companyInfo.siteOffice.line2}
+                                            <br />
+                                            {companyInfo.siteOffice.line3}
                                         </p>
                                     </div>
                                 </div>

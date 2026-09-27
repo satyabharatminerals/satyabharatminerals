@@ -66,9 +66,21 @@ export function Footer() {
                             <li className="flex items-start gap-2.5 text-sm text-muted-foreground">
                                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                                 <span>
+                                    <strong>Head Office:</strong><br />
                                     {companyInfo.address.line1}
                                     <br />
                                     {companyInfo.address.line2}
+                                </span>
+                            </li>
+                            <li className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                                <span>
+                                    <strong>Site Office:</strong><br />
+                                    {companyInfo.siteOffice.line1}
+                                    <br />
+                                    {companyInfo.siteOffice.line2}
+                                    <br />
+                                    {companyInfo.siteOffice.line3}
                                 </span>
                             </li>
                             <li className="flex items-center gap-2.5 text-sm text-muted-foreground">

@@ -1,12 +1,17 @@
 export const companyInfo = {
     name: "Satya Bharat Minerals",
     tagline: "Lime For Everyday Life",
-    phone: ["9810605294", "9250905094", "011-26365294"],
+    phone: ["9250905094", "9810605294", "011-26365294"],
     email: "satyabharatm@gmail.com",
     address: {
         line1: "HR-146/7, First Floor, Opp. DDA LIG Flats",
         line2: "Pul Prahladpur, New Delhi 110044",
     },
+    siteOffice: {
+        line1: "K. no. 4201/1418, Prem Nagar,",
+        line2: "Khinwsar , Nagaur ,",
+        line3: "Rajasthan (RJ)",
+    }
 };
 
 export const products = [
