@@ -56,6 +56,23 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-linear-to-r from-background from-35% via-background/60 via-60% to-transparent" />
         </div>
+
+        {/* ISO 9001:2015 Certification Badge - Top Right Corner */}
+        <div className="absolute top-4 right-4 sm:top-5 sm:right-6 lg:top-6 lg:right-8 z-20">
+          <div className="flex flex-col items-center">
+            <Image
+              src="/images/iso.png"
+              alt="ISO 9001:2015 Certified"
+              title="ISO 9001:2015 Certified"
+              width={160}
+              height={160}
+              className="h-16 w-16 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-32 lg:w-32 object-contain drop-shadow-xl transition-transform duration-300 hover:scale-105"
+              priority
+              unoptimized
+            />
+          </div>
+        </div>
+
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="max-w-2xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">

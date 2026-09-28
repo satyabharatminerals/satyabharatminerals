@@ -32,6 +32,7 @@ export function Navbar() {
                         height={49}
                         className="h-12 w-auto shrink-0"
                         priority
+                        unoptimized
                     />
                     <div className="flex flex-col leading-tight">
                         <span className="font-heading text-sm font-black tracking-tight text-foreground sm:text-base whitespace-nowrap">

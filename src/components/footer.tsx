@@ -16,6 +16,7 @@ export function Footer() {
                                 width={48}
                                 height={49}
                                 className="h-12 w-auto shrink-0"
+                                unoptimized
                             />
                             <div className="flex flex-col leading-tight">
                                 <span className="font-heading text-sm font-black tracking-tight text-foreground whitespace-nowrap">

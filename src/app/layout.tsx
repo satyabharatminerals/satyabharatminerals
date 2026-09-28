@@ -49,6 +49,9 @@ export const metadata: Metadata = {
       'Leading manufacturer of high-grade lime products in India.',
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: 'LbtVT0wWZ3RKSqcE4f5GElwFTv1aZtUT-W6IdpupkdY',
+  },
 };
 
 export default function RootLayout({
