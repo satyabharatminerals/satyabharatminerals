@@ -116,7 +116,7 @@ export const generateProductSchema = (
   url: string,
   image?: string,
   specs?: { label: string; value: string }[],
-  category: string = 'Industrial Lime & Minerals'
+  category: string = 'Industrial Lime and Minerals'
 ) => ({
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -143,16 +143,7 @@ export const generateProductSchema = (
       addressCountry: 'IN',
     },
   },
-  offers: {
-    '@type': 'AggregateOffer',
-    priceCurrency: 'INR',
-    price: 'Contact for Bulk Quote',
-    availability: 'https://schema.org/InStock',
-    seller: {
-      '@type': 'Organization',
-      name: 'Satya Bharat Minerals',
-    },
-  },
+
   ...(specs && specs.length > 0 && {
     additionalProperty: specs.map((spec) => ({
       '@type': 'PropertyValue',
