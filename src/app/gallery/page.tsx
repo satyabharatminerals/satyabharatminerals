@@ -1,7 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Metadata } from 'next';
+import { ArrowRight } from 'lucide-react';
+import { products } from '@/lib/site-data';
 import { getSeoAlternates } from '@/lib/seo-helpers';
 
 export function generateMetadata(): Metadata {
@@ -100,6 +103,43 @@ export default async function GalleryPage() {
                             <p className="text-muted-foreground text-lg">No images available in the gallery.</p>
                         </div>
                     )}
+                </div>
+            </section>
+            {/* Our Products - Internal Linking Section */}
+            <section className="py-16 lg:py-20 bg-muted/40">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-10">
+                        <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+                            Our Lime and Mineral Products
+                        </h2>
+                        <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+                            The products you see manufactured in our gallery — available for bulk supply across India.
+                        </p>
+                    </div>
+                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        {products.map((product) => (
+                            <Link
+                                key={product.slug}
+                                href={`/products/${product.slug}`}
+                                className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm transition-all hover:border-primary/40 hover:shadow-md"
+                            >
+                                <div className="flex-1 min-w-0">
+                                    <p className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">{product.name}</p>
+                                    <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{product.tagline}</p>
+                                </div>
+                                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary transition-colors" />
+                            </Link>
+                        ))}
+                    </div>
+                    <div className="mt-8 text-center">
+                        <Link
+                            href="/products"
+                            className="inline-flex items-center gap-2 rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-primary-foreground"
+                        >
+                            View All Products
+                            <ArrowRight className="h-4 w-4" />
+                        </Link>
+                    </div>
                 </div>
             </section>
         </>
