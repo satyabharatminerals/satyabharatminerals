@@ -37,6 +37,11 @@ const valueIcons: Record<string, typeof Leaf> = {
 };
 
 export const metadata: Metadata = {
+  title: {
+    absolute: 'Quick Lime Manufacturer in India | Quick Lime and Hydrated Lime Supplier',
+  },
+  description:
+    'Satya Bharat Minerals is an ISO 9001:2015 certified quick lime and hydrated lime manufacturer in India, supplying high calcium quicklime lumps, powder, and CaO across industrial sectors.',
   alternates: getSeoAlternates('/'),
 };
 
@@ -77,17 +82,18 @@ export default function Home() {
           <div className="max-w-2xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
               <span className="flex h-2 w-2 rounded-full bg-primary" />
-              Industrial Production of Lime & Related Products
+              ISO 9001:2015 Certified Quick Lime Manufacturer in India
             </div>
             <h1 className="font-heading text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
-              Lime For{' '}
-              <span className="text-primary">Everyday Life</span>
+              India&apos;s Trusted{' '}
+              <span className="text-primary">Quick Lime and Hydrated Lime</span>{' '}
+              Manufacturer
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground text-balance">
-              We process all phases of lime products, from feasibility to
-              manufacturing, guaranteeing high-performance, reliable, and
-              quality lime from A to Z. A pioneer and renowned lime brand in
-              India.
+              Satya Bharat Minerals is a premier quick lime manufacturer and hydrated lime
+              supplier in India, operating high-capacity vertical shaft kilns in Nagaur,
+              Rajasthan. We produce high-calcium quicklime lumps, quick lime powder (CaO),
+              and hydrated lime (slaked lime), delivered reliably across industrial sectors.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
@@ -101,15 +107,15 @@ export default function Home() {
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent/10"
               >
-                Request a Quote
+                Request a Bulk Quote
               </Link>
             </div>
             <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
               {[
-                'High-Grade Quality',
-                'Custom-Made Products',
-                'Timely Delivery',
-                'Eco-Friendly',
+                'High-Calcium Quick Lime',
+                'ISO 9001:2015 Certified',
+                'Custom Grades Available',
+                'Pan-India Supply',
               ].map((item) => (
                 <div key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
                   <CheckCircle2 className="h-4 w-4 text-primary" />
@@ -162,14 +168,14 @@ export default function Home() {
             <div className="relative">
               <ImageCarousel
                 images={[
-                  '/images/applications/aboutus/image1.jpeg',
-                  '/images/applications/aboutus/image2.jpeg',
-                  '/images/applications/aboutus/image3.jpeg',
-                  '/images/applications/aboutus/image4.jpeg',
-                  '/images/applications/aboutus/image5.jpeg',
-                  '/images/applications/aboutus/image6.jpeg'
+                  '/images/applications/aboutus/satya-bharat-minerals-manufacturing-plant.jpg',
+                  '/images/applications/aboutus/industrial-lime-calcination-kiln.jpg',
+                  '/images/applications/aboutus/calcined-lime-lumps-crushed-limestone.jpg',
+                  '/images/applications/aboutus/hydrated-lime-jumbo-bulk-bags-warehouse.jpg',
+                  '/images/applications/aboutus/lime-processing-machinery-facility.jpg',
+                  '/images/applications/aboutus/pure-hydrated-lime-powder-packaging.jpg'
                 ]}
-                alt="Industrial lime manufacturing facility"
+                alt="Industrial lime manufacturing facility - Satya Bharat Minerals"
               />
               <div className="absolute -bottom-4 -right-4 hidden z-20 rounded-xl bg-primary px-4 py-3 text-primary-foreground shadow-xl sm:block">
                 <p className="font-heading text-2xl font-bold">25+</p>
@@ -181,19 +187,17 @@ export default function Home() {
                 About Us
               </span>
               <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl text-balance">
-                Industrial Production of Lime & Related Products
+                India&apos;s Leading Quick Lime and Hydrated Lime Manufacturer
               </h2>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                We have always persisted in following our company ethos of
-                sincerity and credit, quality first, service paramountcy. We
-                maintain focus towards vertical integration, automated
-                production, and environment-friendly management.
+                Operating high-capacity vertical shaft kilns in Nagaur, Rajasthan in India&apos;s
+                premier limestone belt, we manufacture high-calcium quick lime lumps,
+                quick lime powder (CaO), hydrated lime (slaked lime), and natural limestone.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                We unceasingly upgrade the quality and properties of our
-                products to cater to the development and needs of our clients.
-                We specialize in offering custom-made high grade Hydrated Lime,
-                Quicklime, Limestone and Allied Minerals.
+                With 25+ years of industrial lime production experience, we supply bulk
+                quicklime and hydrated lime to steel plants, construction companies, water
+                treatment facilities, and chemical manufacturers across India.
               </p>
               <Link
                 href="/about"
@@ -215,18 +219,19 @@ export default function Home() {
               Our Products
             </span>
             <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl">
-              Premium Lime Products
+              Quick Lime, Hydrated Lime and Calcined Lime Products
             </h2>
             <p className="mt-4 text-muted-foreground">
-              High-quality lime products manufactured to meet the diverse needs
-              of industries across India and beyond.
+              High-purity calcium oxide (CaO) powder, calcined quicklime lumps, hydrated
+              lime (Ca(OH)₂), and natural limestone, manufactured in Rajasthan and
+              supplied to industries across India.
             </p>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product, index) => (
               <Link
                 key={product.id}
-                href={`/products#${product.id}`}
+                href={`/products/${product.slug}`}
                 className="group overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:shadow-lg hover:-translate-y-1"
               >
                 <div className="relative aspect-4/3 overflow-hidden">
@@ -268,20 +273,18 @@ export default function Home() {
                 Why Choose Us
               </span>
               <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl text-balance">
-                A Leading Position Through Modern Technology
+                Why Choose Satya Bharat Minerals as Your Lime Supplier?
               </h2>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                In the field of industrial production of lime and related
-                products, Satya Bharat Minerals is committed to maintaining a
-                leading position through an approach that synthesises the most
-                modern industrial technologies to design lime kilns and
-                hydrating plants that can be defined as increasingly smart,
-                flexible, automated, and sustainable.
+                As a dedicated quick lime manufacturer and hydrated lime supplier in India,
+                Satya Bharat Minerals combines modern vertical shaft kiln technology with
+                high-calcium Rajasthan limestone to deliver consistently high-purity
+                quicklime and hydrated lime that meets the strictest industrial specifications.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                We do not distinguish ourselves from our competitors only on
-                the basis of quality, but also through our commitment to
-                innovation and customer satisfaction.
+                ISO 9001:2015 certified, with 25+ years of experience, we supply
+                bulk quicklime lumps, CaO powder, and slaked lime to steel, cement,
+                water treatment, and construction industries across India.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -317,11 +320,12 @@ export default function Home() {
               Industrial Applications
             </span>
             <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl">
-              Lime & Limestone Are Essential
+              Industrial Applications of Quick Lime and Hydrated Lime
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Our products serve as essential components across a wide range of
-              industries, from steel making to water treatment.
+              Quick lime (CaO) and hydrated lime (Ca(OH)₂) are essential raw materials
+              in steel making, road construction, water treatment, flue gas desulfurization,
+              chemical processes, glass, paper, and mining industries.
             </p>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -371,7 +375,7 @@ export default function Home() {
               Production Process
             </span>
             <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl">
-              From Limestone to Hydrated Lime
+              How We Manufacture Quick Lime and Hydrated Lime
             </h2>
             <p className="mt-4 text-muted-foreground">
               Quicklime can be processed into hydrated lime by adding water to
@@ -453,7 +457,7 @@ export default function Home() {
             <div className="absolute -bottom-16 -left-8 h-56 w-56 rounded-full bg-white/10" />
             <div className="relative">
               <h2 className="font-heading text-3xl font-bold sm:text-4xl text-balance">
-                Ready to Partner with a Trusted Lime Manufacturer?
+                Looking for a Reliable Quick Lime and Hydrated Lime Supplier in India?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-primary-foreground/90">
                 Get in touch with our team for high-grade lime products

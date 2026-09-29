@@ -8,23 +8,54 @@ export const BASE_URL = 'https://satyabharatminerals.com';
 
 export const generateLocalBusinessSchema = () => ({
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': ['LocalBusiness', 'Manufacturer'],
   name: 'Satya Bharat Minerals',
-  image: `${BASE_URL}/logo-icon.png`,
-  '@id': BASE_URL,
+  image: `${BASE_URL}/images/hero-quarry.jpg`,
+  '@id': `${BASE_URL}/#organization`,
   url: BASE_URL,
-  telephone: companyInfo.phone[0],
+  telephone: companyInfo.phone[0].startsWith('+') ? companyInfo.phone[0] : `+91-${companyInfo.phone[0]}`,
   email: companyInfo.email,
+  priceRange: '₹₹',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: companyInfo.address.line1,
-    addressLocality: 'Jodhpur',
+    streetAddress: 'K. no. 4201/1418, Prem Nagar, Khinwsar',
+    addressLocality: 'Nagaur',
     addressRegion: 'Rajasthan',
-    postalCode: '342001',
+    postalCode: '341025',
     addressCountry: 'IN',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 26.9897,
+    longitude: 73.4042,
+  },
   description:
-    'A pioneer and renowned lime brand in India, specializing in custom-made high grade Hydrated Lime, Quick Lime, and allied minerals.',
+    'Satya Bharat Minerals is an ISO 9001:2015 certified quick lime manufacturer and hydrated lime supplier in India, operating vertical shaft kilns in Nagaur, Rajasthan.',
+  knowsAbout: [
+    'Quick Lime Manufacturer',
+    'Quicklime Manufacturer in India',
+    'Quick Lime Manufacturer in Rajasthan',
+    'Quick Lime Supplier',
+    'Quick Lime Powder Manufacturer',
+    'Hydrated Lime Manufacturer',
+    'High Calcium Quick Lime',
+    'Quick Lime Lumps Manufacturer',
+    'Calcium Oxide Manufacturer',
+    'CaO Powder Manufacturer',
+  ],
+});
+
+export const generateBreadcrumbSchema = (
+  items: { name: string; url: string }[]
+) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: item.url.startsWith('http') ? item.url : `${BASE_URL}${item.url}`,
+  })),
 });
 
 export const generateFaqSchema = (
@@ -54,21 +85,81 @@ export const generateFaqSchema = (
   };
 };
 
+export const generateProductCatalogSchema = (
+  productsList: { name: string; description: string; id: string; slug?: string; image?: string }[],
+  url: string = `${BASE_URL}/products`
+) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Satya Bharat Minerals - Industrial Lime and Mineral Products Catalog',
+  description:
+    'Comprehensive range of high-grade industrial lime products including Quick Lime Powder, Calcined Lime Lumps, Hydrated Lime, and Natural Limestone.',
+  url,
+  numberOfItems: productsList.length,
+  itemListElement: productsList.map((product, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: product.name,
+    description: product.description,
+    url: product.slug ? `${BASE_URL}/products/${product.slug}` : `${url}#${product.id}`,
+    image: product.image
+      ? product.image.startsWith('http')
+        ? product.image
+        : `${BASE_URL}${product.image}`
+      : `${BASE_URL}/icon.png`,
+  })),
+});
+
 export const generateProductSchema = (
   name: string,
   description: string,
   url: string,
-  image?: string
+  image?: string,
+  specs?: { label: string; value: string }[],
+  category: string = 'Industrial Lime & Minerals'
 ) => ({
   '@context': 'https://schema.org',
   '@type': 'Product',
   name,
   description,
-  image: image || `${BASE_URL}/logo-icon.png`,
+  image: image
+    ? image.startsWith('http')
+      ? image
+      : `${BASE_URL}${image}`
+    : `${BASE_URL}/icon.png`,
+  category,
   brand: {
     '@type': 'Brand',
     name: 'Satya Bharat Minerals',
   },
+  manufacturer: {
+    '@type': 'Organization',
+    name: 'Satya Bharat Minerals',
+    url: BASE_URL,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Nagaur',
+      addressRegion: 'Rajasthan',
+      addressCountry: 'IN',
+    },
+  },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'INR',
+    price: 'Contact for Bulk Quote',
+    availability: 'https://schema.org/InStock',
+    seller: {
+      '@type': 'Organization',
+      name: 'Satya Bharat Minerals',
+    },
+  },
+  ...(specs && specs.length > 0 && {
+    additionalProperty: specs.map((spec) => ({
+      '@type': 'PropertyValue',
+      name: spec.label,
+      value: spec.value,
+    })),
+  }),
   url,
 });
 

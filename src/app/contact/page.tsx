@@ -6,15 +6,15 @@ import { companyInfo } from '@/lib/site-data';
 import { getSeoAlternates } from '@/lib/seo-helpers';
 
 export const metadata: Metadata = {
-    title: 'Contact Us | Satya Bharat Minerals',
-    description: 'Get in touch with Satya Bharat Minerals for inquiries, quotes, or support. Our team is ready to assist you.',
+    title: 'Contact Quick Lime Supplier in India | Request a Bulk Quote - SBM',
+    description: 'Contact Satya Bharat Minerals, India\'s trusted quick lime and hydrated lime supplier, for bulk orders, pricing, and supply enquiries. Delhi office and Nagaur, Rajasthan plant.',
     alternates: getSeoAlternates('/contact'),
 };
 
 export default function ContactPage() {
     return (
         <>
-            {/* Hero — Dark blue matching other pages */}
+            {/* Hero - Dark blue matching other pages */}
             <section className="relative overflow-hidden bg-[#001F41] py-20 lg:py-28">
                 <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-[#197FD1]/15 blur-3xl" />
                 <div className="absolute top-10 right-0 h-48 w-48 rounded-full bg-[#197FD1]/10 blur-2xl" />

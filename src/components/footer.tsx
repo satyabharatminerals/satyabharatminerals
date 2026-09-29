@@ -7,7 +7,7 @@ export function Footer() {
     return (
         <footer className="border-t border-border bg-secondary/50">
             <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
                     <div className="space-y-3">
                         <div className="flex items-center gap-2.5">
                             <Image
@@ -42,10 +42,34 @@ export function Footer() {
                             {[
                                 { href: '/', label: 'Home' },
                                 { href: '/about', label: 'About Us' },
-                                { href: '/products', label: 'Products' },
+                                { href: '/products', label: 'All Products' },
                                 { href: '/applications', label: 'Applications' },
-                                { href: '/contact', label: 'Contact' },
+                                { href: '/contact', label: 'Contact Us' },
                                 { href: '/gallery', label: 'Gallery' },
+                            ].map((link) => (
+                                <li key={link.href}>
+                                    <Link
+                                        href={link.href}
+                                        className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-foreground">
+                            Our Products
+                        </h3>
+                        <ul className="mt-4 space-y-2.5">
+                            {[
+                                { href: '/products/quick-lime-powder', label: 'Quick Lime Powder' },
+                                { href: '/products/calcined-quick-lime-lumps', label: 'Calcined Lime Lumps' },
+                                { href: '/products/hydrated-lime', label: 'Hydrated Lime (Slaked)' },
+                                { href: '/products/calcium-oxide', label: 'Industrial Calcium Oxide' },
+                                { href: '/products/limestone-natural-mineral', label: 'Natural Limestone' },
                             ].map((link) => (
                                 <li key={link.href}>
                                     <Link

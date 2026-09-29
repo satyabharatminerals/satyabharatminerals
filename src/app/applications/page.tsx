@@ -8,8 +8,8 @@ import { getSeoAlternates } from '@/lib/seo-helpers';
 
 export function generateMetadata(): Metadata {
   return {
-    title: 'Industrial Applications | Satya Bharat Minerals',
-    description: 'Lime and limestone are essential across industries: steel making, road construction, water treatment, chemical processes, paper, glass making, and more.',
+    title: 'Industrial Applications of Quick Lime and Hydrated Lime | Satya Bharat Minerals',
+    description: 'Quick Lime and Hydrated Lime are essential across steel making, road construction, water treatment, flue gas desulfurization, chemical processes, glass, paper, and mining industries.',
     alternates: getSeoAlternates('/applications'),
   };
 }
@@ -29,7 +29,7 @@ const iconMap: Record<string, typeof Factory> = {
 export default function ApplicationsPage() {
     return (
         <>
-            {/* Hero — Dark blue with decorative shapes */}
+            {/* Hero - Dark blue with decorative shapes */}
             <section className="relative overflow-hidden bg-[#001F41] py-20 lg:py-28">
                 <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-[#197FD1]/15 blur-3xl" />
                 <div className="absolute top-10 right-0 h-48 w-48 rounded-full bg-[#197FD1]/10 blur-2xl" />
@@ -40,7 +40,7 @@ export default function ApplicationsPage() {
                             Industrial Applications
                         </span>
                         <h1 className="mt-4 font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl text-balance">
-                            Lime &amp; Limestone Are Essential
+                            Lime and Limestone Are Essential
                         </h1>
                         <p className="mt-6 text-lg text-white/70 text-balance">
                             Our products serve as essential components across a wide range of
@@ -94,7 +94,7 @@ export default function ApplicationsPage() {
                 </div>
             </section>
 
-            {/* Special Applications — with richer styling */}
+            {/* Special Applications - with richer styling */}
             <section className="relative overflow-hidden bg-gradient-to-br from-[#001F41] to-[#0a3a6e] py-16 lg:py-24">
                 <div className="absolute -top-10 -right-10 h-48 w-48 rounded-full bg-[#197FD1]/15 blur-3xl" />
                 <div className="absolute bottom-0 left-0 h-56 w-56 rounded-full bg-[#197FD1]/10 blur-3xl" />
@@ -121,7 +121,7 @@ export default function ApplicationsPage() {
                             'Carpet',
                             'Coal Mine Dust',
                             'Construction',
-                            'Oil & Gas',
+                            'Oil and Gas',
                         ].map((item) => (
                             <span
                                 key={item}
@@ -134,7 +134,7 @@ export default function ApplicationsPage() {
                 </div>
             </section>
 
-            {/* CTA — with decorative circles */}
+            {/* CTA - with decorative circles */}
             <section className="py-16 lg:py-24">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="relative overflow-hidden rounded-3xl bg-primary px-8 py-12 text-center text-primary-foreground shadow-xl sm:px-16">

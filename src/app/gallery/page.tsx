@@ -6,23 +6,40 @@ import { getSeoAlternates } from '@/lib/seo-helpers';
 
 export function generateMetadata(): Metadata {
     return {
-        title: 'Gallery | Satya Bharat Minerals',
-        description: 'Explore the gallery of Satya Bharat Minerals to see our facilities, products, and operations.',
+        title: 'Manufacturing Plant and Lime Kilns Gallery | Satya Bharat Minerals',
+        description: 'View photos of Satya Bharat Minerals vertical shaft kilns, quick lime calcination facility, hydrated lime plant, and packaging operations in Nagaur, Rajasthan.',
         alternates: getSeoAlternates('/gallery'),
     };
+}
+
+interface GalleryItem {
+    src: string;
+    title: string;
+    alt: string;
 }
 
 export default async function GalleryPage() {
     // Read the images from the public/images/gallery directory
     const galleryDir = path.join(process.cwd(), 'public/images/gallery');
     
-    let images: string[] = [];
+    let images: GalleryItem[] = [];
     try {
         if (fs.existsSync(galleryDir)) {
             const files = fs.readdirSync(galleryDir);
             images = files
                 .filter((file) => /\.(jpg|jpeg|png|webp|gif)$/i.test(file))
-                .map((file) => `/images/gallery/${file}`);
+                .map((file) => {
+                    const nameWithoutExt = path.parse(file).name;
+                    const title = nameWithoutExt
+                        .split('-')
+                        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(' ');
+                    return {
+                        src: `/images/gallery/${file}`,
+                        title,
+                        alt: `${title} - Satya Bharat Minerals`,
+                    };
+                });
         }
     } catch (e) {
         console.error("Could not read gallery directory", e);
@@ -30,7 +47,7 @@ export default async function GalleryPage() {
 
     return (
         <>
-            {/* Hero — Dark blue matching other pages */}
+            {/* Hero - Dark blue matching other pages */}
             <section className="relative overflow-hidden bg-[#001F41] py-20 lg:py-28">
                 <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-[#197FD1]/15 blur-3xl" />
                 <div className="absolute top-10 right-0 h-48 w-48 rounded-full bg-[#197FD1]/10 blur-2xl" />
@@ -56,21 +73,25 @@ export default async function GalleryPage() {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     {images.length > 0 ? (
                         <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 [&>div:not(:first-child)]:mt-6">
-                            {images.map((imgSrc, index) => (
+                            {images.map((img, index) => (
                                 <div
                                     key={index}
-                                    className="group relative mb-6 overflow-hidden rounded-2xl shadow-sm transition-all hover:shadow-xl border border-border"
+                                    className="group relative mb-6 overflow-hidden rounded-2xl shadow-sm transition-all hover:shadow-xl border border-border bg-card"
                                 >
                                     <div className="relative w-full">
                                         <Image
-                                            src={imgSrc}
-                                            alt={`Satya Bharat Minerals Gallery Image ${index + 1}`}
+                                            src={img.src}
+                                            alt={img.alt}
                                             width={600}
                                             height={800}
                                             className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
                                     </div>
-                                    <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-5">
+                                        <p className="text-white text-sm font-medium tracking-wide drop-shadow-sm">
+                                            {img.title}
+                                        </p>
+                                    </div>
                                 </div>
                             ))}
                         </div>

@@ -3,12 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Leaf, Eye, ShieldCheck, Award, GraduationCap, Factory } from 'lucide-react';
 import { coreValues, companyInfo } from '@/lib/site-data';
-import { getSeoAlternates } from '@/lib/seo-helpers';
+import { getSeoAlternates, generateLocalBusinessSchema } from '@/lib/seo-helpers';
+import JsonLd from '@/components/seo/JsonLd';
 
 export function generateMetadata(): Metadata {
     return {
-        title: 'About Us | Satya Bharat Minerals',
-        description: 'Learn about Satya Bharat Minerals, our history, founder Mr. Nandlal Sipul, and our commitment to manufacturing the highest grade lime products in India.',
+        title: 'Quick Lime Manufacturer in Rajasthan | About Satya Bharat Minerals',
+        description: 'Satya Bharat Minerals is a leading lime manufacturer in Rajasthan operating high-capacity vertical shaft kilns in Nagaur. Founded by Mr. Nandlal Sipul with 25+ years of excellence in industrial lime production.',
         alternates: getSeoAlternates('/about'),
     };
 }
@@ -24,7 +25,9 @@ const valueIcons: Record<string, typeof Leaf> = {
 export default function AboutPage() {
     return (
         <>
-            {/* Hero — Dark blue with decorative shapes */}
+            <JsonLd data={generateLocalBusinessSchema()} />
+
+            {/* Hero - Dark blue with decorative shapes */}
             <section className="relative overflow-hidden bg-[#001F41] py-20 lg:py-28">
                 {/* Decorative floating circles */}
                 <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-[#197FD1]/15 blur-3xl" />
@@ -34,22 +37,22 @@ export default function AboutPage() {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-3xl text-center">
                         <span className="inline-block rounded-full bg-[#197FD1]/20 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-[#197FD1]">
-                            About Us
+                            Lime Manufacturer in Rajasthan, India
                         </span>
                         <h1 className="mt-4 font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl text-balance">
-                            A Pioneer Lime Brand in India
+                            Leading Quick Lime and Hydrated Lime Manufacturer in Rajasthan
                         </h1>
                         <p className="mt-6 text-lg text-white/70 text-balance">
-                            We persistently aspire to retain the benchmark of quality,
-                            customer-centric approach, robust engineering, in-house research,
-                            timeless values, and transparency in all spheres of business
-                            conduct.
+                            Operating in Nagaur, Rajasthan at the heart of India&apos;s premier high-calcium
+                            limestone belt, Satya Bharat Minerals has been pioneering industrial lime manufacturing
+                            for over 25 years. We produce high-purity quick lime lumps, quicklime powder (CaO),
+                            and hydrated lime (slaked lime) for core industries nationwide.
                         </p>
                     </div>
                 </div>
             </section>
 
-            {/* Founder Section — with accent glow */}
+            {/* Founder Section - with accent glow */}
             <section className="py-16 lg:py-24">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -58,7 +61,7 @@ export default function AboutPage() {
                             <div className="absolute -inset-4 rounded-3xl bg-linear-to-br from-[#197FD1]/20 to-[#001F41]/10 blur-xl" />
                             <div className="relative aspect-4/3 max-w-lg mx-auto overflow-hidden rounded-2xl shadow-xl ring-1 ring-border bg-muted">
                                 <Image
-                                    src="/images/about/factory-facility.jpg"
+                                    src="/images/about/mr-nandlal-sipul-founder.jpg"
                                     alt="Mr. Nandlal Sipul - Founder, Satya Bharat Minerals"
                                     fill
                                     priority
@@ -72,23 +75,23 @@ export default function AboutPage() {
                             {/* Left accent border */}
                             <div className="border-l-4 border-primary pl-6">
                                 <span className="text-sm font-semibold uppercase tracking-wider text-primary">
-                                    Our Founder
+                                    Our Founder and Leadership
                                 </span>
                                 <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl">
                                     Mr. Nandlal Sipul
                                 </h2>
                             </div>
                             <p className="mt-6 text-muted-foreground leading-relaxed">
-                                We at Satya Bharat Minerals persistently aspire to retain the
-                                benchmark of quality, customer centric approach, robust
-                                engineering, in-house research, timeless values and
-                                transparency in all spheres of business conduct which
-                                contribute in making us a pioneer and renowned lime brand in
-                                India.
+                                Founded by Mr. Nandlal Sipul, Satya Bharat Minerals has grown into one of Rajasthan&apos;s
+                                most trusted industrial lime manufacturers and suppliers. Under his visionary leadership,
+                                the company established state-of-the-art calcination facilities in Khinwsar, Nagaur,
+                                operating high-temperature vertical shaft kilns engineered for optimal fuel efficiency and consistent reactivity.
                             </p>
                             <p className="mt-4 text-muted-foreground leading-relaxed">
-                                We specialize in manufacturing custom-made high grade Hydrated
-                                Lime, Quick lime, Quick Lime Powder and other Lime Products.
+                                We specialize in processing high-calcium Rajasthan limestone into high-purity quick lime
+                                powder (CaO), calcined lime lumps, and hydrated (slaked) lime. Our unwavering commitment to
+                                stringent quality testing, ISO 9001:2015 standards, and prompt nationwide delivery has earned
+                                us trusted partnerships with India&apos;s top steel makers, construction giants, and chemical producers.
                             </p>
                             <Link
                                 href="/products"
@@ -102,7 +105,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Core Values — with top border accent cards */}
+            {/* Core Values - with top border accent cards */}
             <section className="relative overflow-hidden bg-secondary/40 py-16 lg:py-24">
                 {/* Decorative shapes */}
                 <div className="absolute top-0 right-0 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
@@ -145,7 +148,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Specialization — with gradient accent */}
+            {/* Specialization - with gradient accent */}
             <section className="py-16 lg:py-24">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="relative rounded-3xl border border-border bg-card overflow-hidden shadow-sm sm:p-0">
@@ -155,24 +158,25 @@ export default function AboutPage() {
                             <div className="grid items-center gap-8 lg:grid-cols-2">
                                 <div>
                                     <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary">
-                                        Our Specialization
+                                        Rajasthan Manufacturing Plant
                                     </span>
                                     <h2 className="mt-4 font-heading text-3xl font-bold text-foreground sm:text-4xl text-balance">
-                                        Custom-Made High Grade Lime Products
+                                        High-Capacity Vertical Shaft Kilns in Nagaur, Rajasthan
                                     </h2>
                                     <p className="mt-4 text-muted-foreground leading-relaxed">
-                                        We specialize in offering custom-made high grade Hydrated
-                                        Lime, Quicklime, Limestone, and Allied Minerals. Our products
-                                        are tailored to meet the specific requirements of diverse
-                                        industries including steel, construction, water treatment,
-                                        and chemical manufacturing.
+                                        Situated in the renowned limestone belt of Nagaur, Rajasthan, our manufacturing
+                                        plant utilizes rich, high-calcium limestone deposits (95%+ CaCO₃). Our advanced
+                                        vertical shaft kilns and automated hydration plants ensure consistent calcination
+                                        temperatures, producing active Calcium Oxide (CaO) and ultra-fine Hydrated Lime
+                                        tailored to strict industrial tolerances.
                                     </p>
                                     <ul className="mt-6 space-y-3">
                                         {[
-                                            'High-grade Hydrated Lime (Ca(OH)\u2082)',
-                                            'Quick Lime Powder and Lumps (CaO)',
-                                            'Natural Limestone (CaCO\u2083)',
-                                            'Allied Minerals for industrial use',
+                                            'High-Calcium Quick Lime Lumps (85-92% CaO) from Nagaur Kilns',
+                                            'High-Reactivity Quick Lime Powder (CaO) for Steel and Chemical Units',
+                                            'Superfine Hydrated (Slaked) Lime (90-96% Ca(OH)₂ Purity)',
+                                            'Natural High-Purity Limestone Mineral (CaCO₃ 95%+)',
+                                            'Pan-India Bulk Supply via Road and Rail Logistics',
                                         ].map((item) => (
                                             <li key={item} className="flex items-center gap-3 text-sm text-foreground">
                                                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">
@@ -198,7 +202,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* CTA — with decorative circles */}
+            {/* CTA - with decorative circles */}
             <section className="pb-16 lg:pb-24">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="relative overflow-hidden rounded-3xl bg-primary px-8 py-12 text-center text-primary-foreground shadow-xl sm:px-16">
@@ -209,10 +213,10 @@ export default function AboutPage() {
 
                         <div className="relative">
                             <h2 className="font-heading text-2xl font-bold sm:text-3xl text-balance">
-                                Want to Learn More About Our Products?
+                                Looking for a Trusted Lime Manufacturer in Rajasthan?
                             </h2>
                             <p className="mx-auto mt-3 max-w-xl text-primary-foreground/90">
-                                Contact us at {companyInfo.phone[0]} or email {companyInfo.email}
+                                Partner directly with Satya Bharat Minerals for high-calcium quicklime, hydrated lime, or customized bulk supply. Call {companyInfo.phone[0]} or email {companyInfo.email} today.
                             </p>
                             <Link
                                 href="/contact"

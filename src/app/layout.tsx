@@ -17,26 +17,39 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Satya Bharat Minerals | Lime For Everyday Life',
+    default: 'Quick Lime and Hydrated Lime Manufacturer in India | Satya Bharat Minerals',
     template: '%s | Satya Bharat Minerals',
   },
   description:
-    'Leading manufacturer of high-grade Hydrated Lime, Quick Lime Powder, Calcined Lime Lumps, and Limestone in India. Serving steel, construction, water treatment, and chemical industries.',
+    'Satya Bharat Minerals is a premier quick lime and hydrated lime manufacturer in India. Supplying high calcium quicklime lumps, powder, and CaO across industrial sectors.',
   keywords: [
-    'quick lime powder',
-    'calcined lime lumps',
-    'hydrated lime',
-    'slaked lime',
-    'limestone supplier India',
-    'lime manufacturer Delhi',
-    'Satya Bharat Minerals',
-    'industrial lime products',
+    'Quick Lime Manufacturer',
+    'Quicklime Manufacturer in India',
+    'Quick Lime Manufacturer in Rajasthan',
+    'Quick Lime Supplier',
+    'Quick Lime Powder Manufacturer',
+    'Quick Lime Powder Supplier',
+    'Hydrated Lime Manufacturer',
+    'Hydrated Lime Manufacturer in India',
+    'Hydrated Lime Supplier',
+    'Industrial Lime Manufacturer',
+    'Lime Manufacturer in Rajasthan',
+    'Lime Supplier in India',
+    'High Calcium Quick Lime',
+    'High Calcium Lime Manufacturer',
+    'Quick Lime Lumps Manufacturer',
+    'Quick Lime Lumps Supplier',
+    'Calcium Oxide Manufacturer',
+    'Calcium Oxide Supplier India',
+    'CaO Powder Manufacturer',
+    'CaO Manufacturer in India',
+    'Satya Bharat Minerals'
   ],
   authors: [{ name: 'Satya Bharat Minerals' }],
   openGraph: {
-    title: 'Satya Bharat Minerals | Lime For Everyday Life',
+    title: 'Quick Lime and Hydrated Lime Manufacturer in India | Satya Bharat Minerals',
     description:
-      'Leading manufacturer of high-grade Hydrated Lime, Quick Lime Powder, Calcined Lime Lumps, and Limestone in India.',
+      'Premier manufacturer and supplier of High Calcium Quick Lime, Hydrated Lime, Calcined Lime Lumps and CaO Powder in India.',
     type: 'website',
     locale: 'en_IN',
     siteName: 'Satya Bharat Minerals',
@@ -44,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Satya Bharat Minerals | Lime For Everyday Life',
+    title: 'Quick Lime and Hydrated Lime Manufacturer in India | Satya Bharat Minerals',
     description:
-      'Leading manufacturer of high-grade lime products in India.',
+      'Premier manufacturer and supplier of High Calcium Quick Lime, Hydrated Lime, Calcined Lime Lumps and CaO Powder in India.',
   },
   robots: { index: true, follow: true },
   verification: {
