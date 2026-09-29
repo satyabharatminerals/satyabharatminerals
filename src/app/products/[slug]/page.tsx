@@ -104,7 +104,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
             `${BASE_URL}/products/${product.slug}`,
             product.image,
             product.specs,
-            'Industrial Chemicals & Minerals'
+            'Industrial Chemicals and Minerals'
           ),
           generateBreadcrumbSchema(breadcrumbs),
           generateFaqSchema(product.faqs, `${BASE_URL}/products/${product.slug}`),

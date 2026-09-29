@@ -116,10 +116,10 @@ export const generateProductSchema = (
   url: string,
   image?: string,
   specs?: { label: string; value: string }[],
-  category: string = 'Industrial Lime and Minerals'
+  serviceType: string = 'Industrial Lime and Minerals Supply'
 ) => ({
   '@context': 'https://schema.org',
-  '@type': 'Product',
+  '@type': 'Service',
   name,
   description,
   image: image
@@ -127,12 +127,8 @@ export const generateProductSchema = (
       ? image
       : `${BASE_URL}${image}`
     : `${BASE_URL}/icon.png`,
-  category,
-  brand: {
-    '@type': 'Brand',
-    name: 'Satya Bharat Minerals',
-  },
-  manufacturer: {
+  serviceType,
+  provider: {
     '@type': 'Organization',
     name: 'Satya Bharat Minerals',
     url: BASE_URL,
@@ -143,7 +139,10 @@ export const generateProductSchema = (
       addressCountry: 'IN',
     },
   },
-
+  areaServed: {
+    '@type': 'Country',
+    name: 'India',
+  },
   ...(specs && specs.length > 0 && {
     additionalProperty: specs.map((spec) => ({
       '@type': 'PropertyValue',
